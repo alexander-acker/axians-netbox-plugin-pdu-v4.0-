@@ -9,10 +9,7 @@ from .forms import PDUConfigCSVForm, PDUConfigFilterForm, PDUConfigForm
 from .models import PDUConfig
 from .tables import PDUConfigBulkTable, PDUConfigTable
 
-from django.conf import settings
-from packaging import version
 
-NETBOX_CURRENT_VERSION = version.parse(settings.VERSION)
 
 class PDUConfigListView(PermissionRequiredMixin, ObjectListView):
     """View for listing all PDUConfig items"""
@@ -31,10 +28,7 @@ class PDUConfigCreateView(PermissionRequiredMixin, ObjectEditView):
     model = PDUConfig
     queryset = PDUConfig.objects.all()
     form = PDUConfigForm
-    if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
-        template_name = "axians_netbox_pdu/pduconfig_edit_3_x.html"
-    else:
-        template_name = "axians_netbox_pdu/pduconfig_edit.html"
+    template_name = "axians_netbox_pdu/pduconfig_edit.html"
     default_return_url = "plugins:axians_netbox_pdu:pduconfig_list"
 
 

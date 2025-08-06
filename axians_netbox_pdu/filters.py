@@ -7,7 +7,7 @@ from .models import PDUConfig, PDUStatus
 
 from netbox.filtersets import NetBoxModelFilterSet
 
-class PDUConfigFilter(django_filters.FilterSet):
+class PDUConfigFilter(NetBoxModelFilterSet):
     """Filter PDUConfig instances."""
 
     q = django_filters.CharFilter(method="search", label="Search",)
@@ -42,7 +42,7 @@ class PDUConfigFilter(django_filters.FilterSet):
         return queryset.filter(qs_filter)
 
 
-class PDUStatusFilter(django_filters.FilterSet):
+class PDUStatusFilter(NetBoxModelFilterSet):
     """Filter PDUStatus instances."""
 
     q = django_filters.CharFilter(method="search", label="Search",)

@@ -1,6 +1,6 @@
-__version__ = "0.0.3"
+__version__ = "4.0.0"
 
-from extras.plugins import PluginConfig
+from netbox.plugins import PluginConfig
 
 
 class PDUConfig(PluginConfig):
@@ -13,7 +13,7 @@ class PDUConfig(PluginConfig):
     description = "A plugin for NetBox to easily get PDU information."
     base_url = "pdu"
     required_settings = []
-    min_version = "2.9.1"
+    min_version = "4.0.0"
     default_settings = {
         "schedule": True,
         "schedule_interval": 60 * 5,

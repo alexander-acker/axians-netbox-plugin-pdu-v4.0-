@@ -2,7 +2,7 @@ from django import forms
 
 from dcim.models import DeviceType, Manufacturer
 #from extras.forms import CustomFieldModelCSVForm
-from utilities.forms import BootstrapMixin, CSVModelChoiceField
+from utilities.forms import CSVModelChoiceField
 from netbox.forms import NetBoxModelCSVForm
 
 from .choices import PDUUnitChoices
@@ -11,7 +11,7 @@ from .models import PDUConfig
 BLANK_CHOICE = (("", "---------"),)
 
 
-class PDUConfigForm(BootstrapMixin, forms.ModelForm):
+class PDUConfigForm(forms.ModelForm):
     """Form for creating a new PDUConfig"""
 
     device_type = forms.ModelChoiceField(
@@ -36,7 +36,7 @@ class PDUConfigForm(BootstrapMixin, forms.ModelForm):
         obj_type = "test"
 
 
-class PDUConfigFilterForm(BootstrapMixin, forms.ModelForm):
+class PDUConfigFilterForm(forms.ModelForm):
     """Form for siltering PDUConfig instances."""
 
     device_type = forms.ModelChoiceField(

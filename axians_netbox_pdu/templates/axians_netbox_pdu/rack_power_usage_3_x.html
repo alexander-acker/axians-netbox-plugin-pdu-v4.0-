@@ -7,8 +7,7 @@
     <div class="card-header">
         <strong>Power Usage Devices</strong>
     </div>
-    <div class="card-body">
-        <table class="table table-hover attr-table">
+    <table class="table table-hover attr-table">
             <thead>
                 <tr>
                     <th>
@@ -38,7 +37,6 @@
                 {%endfor %}
             </tbody>
         </table>
-    </div>
 </div>
 {% endif %}
 
@@ -47,8 +45,7 @@
     <div class="card-header">
         <strong>Power Usage Summary</strong>
     </div>
-    <div class="card-body">
-        <table class="table table-hover attr-table">
+    <table class="table table-hover attr-table">
             <tbody>
                 {% if total_power_usage_unit %}
                 <tr>
@@ -70,7 +67,6 @@
                 {% endif %}
             </tbody>
         </table>
-    </div>
 </div>
 {% endif %}
 {% endwith %}

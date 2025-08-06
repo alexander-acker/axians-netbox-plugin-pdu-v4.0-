@@ -1,12 +1,13 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from netbox.api.serializers import NetBoxModelSerializer
 
 from axians_netbox_pdu.choices import PDUUnitChoices
 from axians_netbox_pdu.models import PDUConfig, PDUStatus
 from dcim.models import Device, DeviceType
 
 
-class PDUConfigSerializer(serializers.ModelSerializer):
+class PDUConfigSerializer(NetBoxModelSerializer):
     """Serializer for the PDUConfig model."""
 
     def validate(self, data):
@@ -38,9 +39,10 @@ class PDUConfigSerializer(serializers.ModelSerializer):
             "power_usage_oid",
             "power_usage_unit",
         ]
+        brief_fields = ["id", "device_type", "power_usage_unit"]
 
 
-class PDUStatusSerializer(serializers.ModelSerializer):
+class PDUStatusSerializer(NetBoxModelSerializer):
     """Serializer for the PSUStatus model."""
 
     def validate(self, data):
@@ -62,3 +64,4 @@ class PDUStatusSerializer(serializers.ModelSerializer):
     class Meta:
         model = PDUStatus
         fields = ["id", "device", "power_usage"]
+        brief_fields = ["id", "device", "power_usage"]
