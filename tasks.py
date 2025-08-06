@@ -2,7 +2,7 @@ import os
 
 from invoke import task
 
-PYTHON_VER = os.getenv("PYTHON_VER", "3.9")
+PYTHON_VER = os.getenv("PYTHON_VER", "3.11")
 NETBOX_VER = os.getenv("NETBOX_VER", "master")
 
 # Name of the docker image/container
